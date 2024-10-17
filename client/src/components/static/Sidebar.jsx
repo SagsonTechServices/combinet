@@ -16,6 +16,8 @@ function Sidebar() {
 
   function onLogoutClick(){
     dispatch(logoutUser());
+    alert("you have been logged out.");
+    window.location.reload();
   }
   return (
     <div>
@@ -71,7 +73,7 @@ function Sidebar() {
               <Link to={'/blog/post'}><span><img src={post} className='w-8' alt="" /></span> Post Blog</Link>
             </li>
             <li className='my-2'>
-              <Link to={'/communities'}><span><img src={communities} className='w-8' alt="" /></span> My Communities</Link>
+              <Link to={'/communities'}><span><img src={communities} className='w-8' alt="" /></span> Communities</Link>
             </li>
             <li className='my-2'>
               {!user ? <Link to={'/login'}><span><img src={profile} className='w-8' alt="" /></span>Log in</Link> : <Link to={'/profile'}><span><img src={profile} className='w-8' alt="" /></span> My Profile</Link>}

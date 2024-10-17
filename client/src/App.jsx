@@ -14,6 +14,7 @@ import { useEffect } from "react";
 import { setUserFromStorage } from "./redux/features/user/userSlice";
 import BlogPage from "./components/pages/BlogPage";
 import ViewProfilePage from "./components/pages/ViewProfilePage";
+import ProtectRoute from "./ProtectRoute";
 
 function App() {
   const dispatch = useDispatch();
@@ -56,11 +57,11 @@ function App() {
             ></Route>
             <Route
               path="/blog/post"
-              element={<PostBlogPage></PostBlogPage>}
+              element={<ProtectRoute><PostBlogPage></PostBlogPage></ProtectRoute>}
             ></Route>
             <Route
               path="/profile"
-              element={<ProfilePage></ProfilePage>}
+              element={<ProtectRoute><ProfilePage></ProfilePage></ProtectRoute>}
             ></Route>
             <Route
               path="/blog"

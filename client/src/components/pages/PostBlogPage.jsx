@@ -12,8 +12,6 @@ function PostBlogPage() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    console.log(user);
-    if(user === undefined){return;}
     async function fetchCategories(){
       try{
         const response = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/category/get-all`);
@@ -25,15 +23,7 @@ function PostBlogPage() {
         setIsLoading(false);
       }
     }
-
-    if(user === null){return;}
-
-    if(!user){
-      console.log('hi')
-      navigate('/login');
-    }else{
       fetchCategories();
-    }
   }, [user, navigate]);
 
   if(isLoading){
